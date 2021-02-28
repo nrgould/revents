@@ -1,15 +1,20 @@
-import React from 'react'
-import { Item, Segment, Icon, List, Button } from 'semantic-ui-react'
-import EventListAttendee from './EventListAttendee'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Item, Segment, Icon, List, Button } from "semantic-ui-react";
+import EventListAttendee from "./EventListAttendee";
 
-function EventListItem({event, selectEvent, deleteEvent}) {
+function EventListItem({ event, selectEvent, deleteEvent }) {
     return (
         <div>
-            <Segment.Group style={{ marginBottom: 20}}>
+            <Segment.Group style={{ marginBottom: 20 }}>
                 <Segment>
                     <Item.Group>
                         <Item>
-                            <Item.Image size="tiny" circuluar src={event.hostPhotoURL} />
+                            <Item.Image
+                                size="tiny"
+                                circuluar
+                                src={event.hostPhotoURL}
+                            />
                             <Item.Content>
                                 <Item.Header content={event.title} />
                                 <Item.Description>
@@ -27,19 +32,33 @@ function EventListItem({event, selectEvent, deleteEvent}) {
                 </Segment>
                 <Segment secondary>
                     <List horizontal>
-                        {event.attendees.map(attendee => (
-                            <EventListAttendee key={attendee.id} attendee={attendee} />
+                        {event.attendees.map((attendee) => (
+                            <EventListAttendee
+                                key={attendee.id}
+                                attendee={attendee}
+                            />
                         ))}
                     </List>
                 </Segment>
                 <Segment clearing>
                     <div>{event.description}</div>
-                    <Button onClick={() => selectEvent(event)} color='teal' floated="right" content="View" />
-                    <Button onClick={() => deleteEvent(event.id)} color='red' floated="right" content="Delete" />
+                    <Button
+                        as={Link}
+                        to={`/events/${event.id}`}
+                        color="teal"
+                        floated="right"
+                        content="View"
+                    />
+                    <Button
+                        onClick={() => deleteEvent(event.id)}
+                        color="red"
+                        floated="right"
+                        content="Delete"
+                    />
                 </Segment>
             </Segment.Group>
         </div>
-    )
+    );
 }
 
-export default EventListItem
+export default EventListItem;

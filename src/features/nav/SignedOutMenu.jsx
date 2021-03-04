@@ -1,11 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { Button, Menu } from "semantic-ui-react";
 
 function SignedOutMenu({ setAuthenticated }) {
     return (
         <>
-            <Menu.Item as={NavLink} to="/" position="right">
+            <Menu.Item position="right">
                 <Button
                     onClick={() => setAuthenticated(true)}
                     basic

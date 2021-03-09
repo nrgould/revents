@@ -4,10 +4,12 @@ import EventDetailedChat from "./EventDetailedChat";
 import EventDetailedHeader from "./EventDetailedHeader";
 import EventDetailedInfo from "./EventDetailedInfo";
 import EventDetailedSidebar from "./EventDetailedSidebar";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 
 function EventDetailedPage({ match }) {
-    const event = useSelector(state => state.event.events.find(e => e.id === match.params.id))
+    const event = useSelector((state) =>
+        state.event.events.find((e) => e.id === match.params.id)
+    );
 
     return (
         <Grid>

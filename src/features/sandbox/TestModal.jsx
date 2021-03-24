@@ -1,12 +1,12 @@
-import React from 'react'
-import ModalWrapper from '../../app/common/modals/ModalWrapper'
+import React from "react";
+import ModalWrapper from "../../app/common/modals/ModalWrapper";
 
-function TestModal({data}) {
+function TestModal({ data }) {
     return (
-        <ModalWrapper size='mini' header='test modal'>
+        <ModalWrapper size="mini" header="test modal">
             <div>The data is: {data}</div>
         </ModalWrapper>
-    )
+    );
 }
 
-export default TestModal
+export default TestModal;

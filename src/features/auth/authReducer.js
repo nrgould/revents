@@ -3,8 +3,8 @@ import { SIGN_IN_USER, SIGN_OUT_USER } from "./authConstants";
 const initialState = {
     authenticated: false,
     currentUser: {
-        email: 'bob@test.com',
-        photoURL: '/assets/user.png'
+        email: "bob@test.com",
+        photoURL: "/assets/user.png",
     },
 };
 

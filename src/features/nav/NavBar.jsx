@@ -6,7 +6,7 @@ import SignedInMenu from "./SignedInMenu";
 import SignedOutMenu from "./SignedOutMenu";
 
 export default function NavBar({ setFormOpen }) {
-    const {authenticated} = useSelector(state => state.auth)
+    const { authenticated } = useSelector((state) => state.auth);
 
     return (
         <Menu inverted fixed="top">
@@ -19,20 +19,14 @@ export default function NavBar({ setFormOpen }) {
                     />
                     Re-vents
                 </Menu.Item>
-                <Menu.Item as={NavLink} exact to="/sandbox" header>
-                    <Button inverted content="Sandbox" />
-                </Menu.Item>
+                <Menu.Item as={NavLink} exact to="/sandbox" name="Sandbox" />
                 <Menu.Item as={NavLink} to="/events" name="events" />
                 {authenticated && (
                     <Menu.Item as={NavLink} to="/createEvent">
                         <Button positive inverted content="Create Event" />
                     </Menu.Item>
                 )}
-                {authenticated ? (
-                    <SignedInMenu />
-                ) : (
-                    <SignedOutMenu />
-                )}
+                {authenticated ? <SignedInMenu /> : <SignedOutMenu />}
             </Container>
         </Menu>
     );

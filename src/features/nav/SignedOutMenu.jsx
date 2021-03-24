@@ -9,7 +9,7 @@ function SignedOutMenu({ setAuthenticated }) {
         <>
             <Menu.Item position="right">
                 <Button
-                    onClick={() => dispatch(openModal({modalType: 'LoginForm'}))}
+                    onClick={() => dispatch(openModal({ modalType: "LoginForm" }))}
                     basic
                     inverted
                     content="Login"

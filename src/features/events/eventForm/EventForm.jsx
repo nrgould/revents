@@ -60,51 +60,50 @@ function EventForm({ match, history }) {
             >
                 {({ isSubmitting, dirty, isValid }) => (
                     <Form className="ui form">
-                    <Header sub color="teal" content="Event d=Details" />
-                    <MyTextInput
-                        name="title"
-                        placeholder="Event title"
-                    ></MyTextInput>
-                    <MySelectInput
-                        name="category"
-                        placeholder="Category"
-                        options={categoryData}
-                    ></MySelectInput>
-                    <MyTextArea
-                        name="description"
-                        placeholder="Description"
-                        rows="3"
-                    ></MyTextArea>
-                    <Header sub color="teal" content="Event Location Details" />
-                    <MyTextInput name="city" placeholder="City"></MyTextInput>
-                    <MyTextInput name="venue" placeholder="Venue"></MyTextInput>
-                    <MyDateInput
-                        name="date"
-                        placeholder="Event date"
-                        timeFormat='HH:mm'
-                        showTimeSelect
-                        timeCaption='time'
-                        dateFormat='MMMM d, yyyy h:mm a'
-                    ></MyDateInput>
-                    <Button
-                        loading={isSubmitting}
-                        disabled={!isValid || !dirty || isSubmitting}
-                        type="submit"
-                        floated="right"
-                        positive
-                        content="Submit"
-                    />
-                    <Button
-                        disabled={isSubmitting}
-                        as={Link}
-                        to={"/events"}
-                        type="submit"
-                        floated="right"
-                        content="Cancel"
-                    />
-                </Form>
+                        <Header sub color="teal" content="Event d=Details" />
+                        <MyTextInput
+                            name="title"
+                            placeholder="Event title"
+                        ></MyTextInput>
+                        <MySelectInput
+                            name="category"
+                            placeholder="Category"
+                            options={categoryData}
+                        ></MySelectInput>
+                        <MyTextArea
+                            name="description"
+                            placeholder="Description"
+                            rows="3"
+                        ></MyTextArea>
+                        <Header sub color="teal" content="Event Location Details" />
+                        <MyTextInput name="city" placeholder="City"></MyTextInput>
+                        <MyTextInput name="venue" placeholder="Venue"></MyTextInput>
+                        <MyDateInput
+                            name="date"
+                            placeholder="Event date"
+                            timeFormat="HH:mm"
+                            showTimeSelect
+                            timeCaption="time"
+                            dateFormat="MMMM d, yyyy h:mm a"
+                        ></MyDateInput>
+                        <Button
+                            loading={isSubmitting}
+                            disabled={!isValid || !dirty || isSubmitting}
+                            type="submit"
+                            floated="right"
+                            positive
+                            content="Submit"
+                        />
+                        <Button
+                            disabled={isSubmitting}
+                            as={Link}
+                            to={"/events"}
+                            type="submit"
+                            floated="right"
+                            content="Cancel"
+                        />
+                    </Form>
                 )}
-                
             </Formik>
         </Segment>
     );

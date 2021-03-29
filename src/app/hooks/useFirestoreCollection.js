@@ -21,7 +21,7 @@ export default function useFirestoreCollection({ query, data, deps }) {
             (error) => dispatch(asyncActionError(error))
         );
         return () => {
-            unsubscribe()
-        }
+            unsubscribe();
+        };
     }, deps); // eslint-disable-line react-hooks/exhaustive-deps
 }

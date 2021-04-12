@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import {
     asyncActionError,
     asyncActionFinish,
     asyncActionStart,
-} from "../async/asyncReducer";
-import { dataFromSnapshot } from "../firestore/firestoreService";
+} from '../async/asyncReducer';
+import { dataFromSnapshot } from '../firestore/firestoreService';
 
 export default function useFirestoreDoc({
     query,
@@ -23,8 +23,8 @@ export default function useFirestoreDoc({
                 if (!snapshot.exists) {
                     dispatch(
                         asyncActionError({
-                            code: "not-found",
-                            message: "Could not find document",
+                            code: 'not-found',
+                            message: 'Could not find document',
                         })
                     );
                     return;

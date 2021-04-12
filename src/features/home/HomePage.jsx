@@ -1,5 +1,12 @@
-import React from "react";
-import { Container, Header, Segment, Image, Icon, Button } from "semantic-ui-react";
+import React from 'react';
+import {
+    Container,
+    Header,
+    Segment,
+    Image,
+    Icon,
+    Button,
+} from 'semantic-ui-react';
 
 function HomePage({ history }) {
     return (
@@ -15,10 +22,9 @@ function HomePage({ history }) {
                         Re-vents
                     </Header>
                     <Button
-                        onClick={() => history.push("/events")}
+                        onClick={() => history.push('/events')}
                         size="huge"
-                        inverted
-                    >
+                        inverted>
                         Get started
                         <Icon name="right arrow" inverted />
                     </Button>

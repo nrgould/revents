@@ -3,7 +3,7 @@ import {
     DELETE_EVENT,
     FETCH_EVENTS,
     UPDATE_EVENT,
-} from "./eventConstants";
+} from './eventConstants';
 
 const initialState = {
     events: [],

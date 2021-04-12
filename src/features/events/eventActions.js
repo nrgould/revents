@@ -1,16 +1,16 @@
-import { toast } from "react-toastify";
-import { fetchSampleData } from "../../app/api/mockApi";
+import { toast } from 'react-toastify';
+import { fetchSampleData } from '../../app/api/mockApi';
 import {
     asyncActionError,
     asyncActionFinish,
     asyncActionStart,
-} from "../../app/async/asyncReducer";
+} from '../../app/async/asyncReducer';
 import {
     CREATE_EVENT,
     DELETE_EVENT,
     FETCH_EVENTS,
     UPDATE_EVENT,
-} from "./eventConstants";
+} from './eventConstants';
 
 export function loadEvents() {
     return async function (dispatch) {

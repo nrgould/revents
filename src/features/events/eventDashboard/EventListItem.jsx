@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Item, Segment, Icon, List, Button, Label } from "semantic-ui-react";
-import EventListAttendee from "./EventListAttendee";
-import { format } from "date-fns";
-import { deleteEventInFirestore } from "../../../app/firestore/firestoreService";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Item, Segment, Icon, List, Button, Label } from 'semantic-ui-react';
+import EventListAttendee from './EventListAttendee';
+import { format } from 'date-fns';
+import { deleteEventInFirestore } from '../../../app/firestore/firestoreService';
 
 function EventListItem({ event }) {
     return (
@@ -24,7 +24,7 @@ function EventListItem({ event }) {
                                 </Item.Description>
                                 {event.isCancelled && (
                                     <Label
-                                        style={{ top: "-40px" }}
+                                        style={{ top: '-40px' }}
                                         ribbon="right"
                                         color="red"
                                         content="This event has been cancelled"
@@ -36,8 +36,8 @@ function EventListItem({ event }) {
                 </Segment>
                 <Segment>
                     <span>
-                        <Icon name="clock" />{" "}
-                        {format(event.date, "MMMM d, yyyy h:mm a")}
+                        <Icon name="clock" />{' '}
+                        {format(event.date, 'MMMM d, yyyy h:mm a')}
                         <Icon name="marker" /> {event.venue}
                     </span>
                 </Segment>

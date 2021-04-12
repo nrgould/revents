@@ -1,8 +1,8 @@
-import { useField, useFormikContext } from "formik";
-import React from "react";
-import { FormField, Label } from "semantic-ui-react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { useField, useFormikContext } from 'formik';
+import React from 'react';
+import { FormField, Label } from 'semantic-ui-react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 function MyDateInput({ label, ...props }) {
     const { setFieldValue } = useFormikContext();

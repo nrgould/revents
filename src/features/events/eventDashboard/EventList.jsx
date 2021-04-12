@@ -1,5 +1,5 @@
-import React from "react";
-import EventListItem from "./EventListItem";
+import React from 'react';
+import EventListItem from './EventListItem';
 
 function EventList({ events }) {
     return (

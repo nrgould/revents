@@ -1,7 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Button, Header, Segment } from "semantic-ui-react";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Button, Header, Segment } from 'semantic-ui-react';
 
 function ErrorComponent() {
     const { error } = useSelector((state) => state.async);
@@ -9,7 +9,7 @@ function ErrorComponent() {
         <Segment placeholder>
             <Header
                 textAlign="center"
-                content={error?.message || "Oops - we have an error"}
+                content={error?.message || 'Oops - we have an error'}
             />
             <Button
                 as={Link}

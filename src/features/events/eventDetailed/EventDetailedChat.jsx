@@ -1,5 +1,5 @@
-import React from "react";
-import { Segment, Comment, Button, Form, Header } from "semantic-ui-react";
+import React from 'react';
+import { Segment, Comment, Button, Form, Header } from 'semantic-ui-react';
 
 function EventDetailedChat() {
     return (
@@ -9,8 +9,7 @@ function EventDetailedChat() {
                 attached="top"
                 inverted
                 color="teal"
-                style={{ border: "none" }}
-            >
+                style={{ border: 'none' }}>
                 <Header>Chat about this event</Header>
             </Segment>
 
@@ -39,8 +38,8 @@ function EventDetailedChat() {
                             </Comment.Metadata>
                             <Comment.Text>
                                 <p>
-                                    This has been very useful for my research. Thanks
-                                    as well!
+                                    This has been very useful for my research.
+                                    Thanks as well!
                                 </p>
                             </Comment.Text>
                             <Comment.Actions>
@@ -71,7 +70,9 @@ function EventDetailedChat() {
                     <Comment>
                         <Comment.Avatar src="/assets/user.png" />
                         <Comment.Content>
-                            <Comment.Author as="a">Joe Henderson</Comment.Author>
+                            <Comment.Author as="a">
+                                Joe Henderson
+                            </Comment.Author>
                             <Comment.Metadata>
                                 <div>5 days ago</div>
                             </Comment.Metadata>

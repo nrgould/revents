@@ -1,15 +1,15 @@
-import React from "react";
-import { Grid } from "semantic-ui-react";
-import EventDetailedChat from "./EventDetailedChat";
-import EventDetailedHeader from "./EventDetailedHeader";
-import EventDetailedInfo from "./EventDetailedInfo";
-import EventDetailedSidebar from "./EventDetailedSidebar";
-import { useDispatch, useSelector } from "react-redux";
-import useFirestoreDoc from "../../../app/hooks/useFirestoreDoc";
-import { listenToEventFromFirestore } from "../../../app/firestore/firestoreService";
-import { listenToEvents } from "../eventActions";
-import LoadingComponent from "../../../app/layout/LoadingComponent";
-import { Redirect } from "react-router";
+import React from 'react';
+import { Grid } from 'semantic-ui-react';
+import EventDetailedChat from './EventDetailedChat';
+import EventDetailedHeader from './EventDetailedHeader';
+import EventDetailedInfo from './EventDetailedInfo';
+import EventDetailedSidebar from './EventDetailedSidebar';
+import { useDispatch, useSelector } from 'react-redux';
+import useFirestoreDoc from '../../../app/hooks/useFirestoreDoc';
+import { listenToEventFromFirestore } from '../../../app/firestore/firestoreService';
+import { listenToEvents } from '../eventActions';
+import LoadingComponent from '../../../app/layout/LoadingComponent';
+import { Redirect } from 'react-router';
 
 function EventDetailedPage({ match }) {
     const dispatch = useDispatch();

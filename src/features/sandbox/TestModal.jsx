@@ -1,5 +1,5 @@
-import React from "react";
-import ModalWrapper from "../../app/common/modals/ModalWrapper";
+import React from 'react';
+import ModalWrapper from '../../app/common/modals/ModalWrapper';
 
 function TestModal({ data }) {
     return (

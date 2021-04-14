@@ -41,7 +41,8 @@ function AccountPage() {
                             } finally {
                                 setSubmitting(false);
                             }
-                        }}>
+                        }}
+                    >
                         {({ errors, isSubmitting, isValid, dirty }) => (
                             <Form className="ui form">
                                 <MyTextInput

@@ -10,7 +10,8 @@ function EventDetailedSidebar({ attendees }) {
                 attached="top"
                 secondary
                 inverted
-                color="teal">
+                color="teal"
+            >
                 {attendees.length} {attendees.length > 1 ? 'People' : 'Person'}{' '}
                 Going
             </Segment>
@@ -19,7 +20,8 @@ function EventDetailedSidebar({ attendees }) {
                     {attendees.map((attendee) => (
                         <Item
                             key={attendee.id}
-                            style={{ position: 'relative' }}>
+                            style={{ position: 'relative' }}
+                        >
                             <Item.Image
                                 size="tiny"
                                 src={attendee.photoURL || '/assets/user.png'}

@@ -38,7 +38,8 @@ function RegisterForm() {
                         setSubmitting(false);
                         toast.error(error.message);
                     }
-                }}>
+                }}
+            >
                 {({ isSubmitting, isValid, dirty, errors }) => (
                     <Form className="ui form">
                         <MyTextInput

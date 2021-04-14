@@ -84,26 +84,30 @@ function EventForm({ match, history }) {
                             ? await updateEventInFirestore(values)
                             : await addEventToFirestore(values);
                         setSubmitting(false);
-                        history.push('/events');
+                        history.push(`/events/${match.params.id}`);
                     } catch (error) {
                         toast.error(error.message);
                         setSubmitting(false);
                     }
-                }}>
+                }}
+            >
                 {({ isSubmitting, dirty, isValid }) => (
                     <Form className="ui form">
                         <Header sub color="teal" content="Event Details" />
                         <MyTextInput
                             name="title"
-                            placeholder="Event title"></MyTextInput>
+                            placeholder="Event title"
+                        ></MyTextInput>
                         <MySelectInput
                             name="category"
                             placeholder="Category"
-                            options={categoryData}></MySelectInput>
+                            options={categoryData}
+                        ></MySelectInput>
                         <MyTextArea
                             name="description"
                             placeholder="Description"
-                            rows="3"></MyTextArea>
+                            rows="3"
+                        ></MyTextArea>
                         <Header
                             sub
                             color="teal"
@@ -111,17 +115,20 @@ function EventForm({ match, history }) {
                         />
                         <MyTextInput
                             name="city"
-                            placeholder="City"></MyTextInput>
+                            placeholder="City"
+                        ></MyTextInput>
                         <MyTextInput
                             name="venue"
-                            placeholder="Venue"></MyTextInput>
+                            placeholder="Venue"
+                        ></MyTextInput>
                         <MyDateInput
                             name="date"
                             placeholder="Event date"
                             timeFormat="HH:mm"
                             showTimeSelect
                             timeCaption="time"
-                            dateFormat="MMMM d, yyyy h:mm a"></MyDateInput>
+                            dateFormat="MMMM d, yyyy h:mm a"
+                        ></MyDateInput>
                         {selectedEvent && (
                             <Button
                                 loading={loadingCancel}
@@ -172,7 +179,8 @@ function EventForm({ match, history }) {
                 onClose={() => setConfirmOpen(false)}
                 onOpen={() => setConfirmOpen(true)}
                 open={confirmOpen}
-                size="small">
+                size="small"
+            >
                 <Header>
                     {selectedEvent?.isCancelled
                         ? 'Reactivate Event'
@@ -190,13 +198,15 @@ function EventForm({ match, history }) {
                         basic
                         color="red"
                         inverted
-                        onClick={() => setConfirmOpen(false)}>
+                        onClick={() => setConfirmOpen(false)}
+                    >
                         <Icon name="remove" /> No
                     </Button>
                     <Button
                         color="green"
                         inverted
-                        onClick={() => handleCancelToggle(selectedEvent)}>
+                        onClick={() => handleCancelToggle(selectedEvent)}
+                    >
                         <Icon name="checkmark" /> Yes
                     </Button>
                 </Modal.Actions>

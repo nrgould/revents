@@ -55,7 +55,8 @@ function EventDetailedHeader({ event }) {
                     as={Link}
                     to={`/manage/${event.id}`}
                     color="orange"
-                    floated="right">
+                    floated="right"
+                >
                     Manage Event
                 </Button>
             </Segment>

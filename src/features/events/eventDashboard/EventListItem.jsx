@@ -58,13 +58,13 @@ function EventListItem({ event }) {
                         to={`/events/${event.id}`}
                         color="teal"
                         floated="right"
-                        content="View"
+                        icon="arrow right"
                     />
                     <Button
                         onClick={() => deleteEventInFirestore(event.id)}
                         color="red"
                         floated="right"
-                        content="Delete"
+                        icon="trash"
                     />
                 </Segment>
             </Segment.Group>

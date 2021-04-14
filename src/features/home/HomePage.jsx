@@ -24,7 +24,8 @@ function HomePage({ history }) {
                     <Button
                         onClick={() => history.push('/events')}
                         size="huge"
-                        inverted>
+                        inverted
+                    >
                         Get started
                         <Icon name="right arrow" inverted />
                     </Button>

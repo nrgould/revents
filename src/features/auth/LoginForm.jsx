@@ -34,7 +34,8 @@ function LoginForm() {
                         });
                         setSubmitting(false);
                     }
-                }}>
+                }}
+            >
                 {({ isSubmitting, isValid, dirty, errors }) => (
                     <Form className="ui form">
                         <MyTextInput name="email" placeholder="Email Address" />

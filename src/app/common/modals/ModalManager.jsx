@@ -5,20 +5,20 @@ import LoginForm from '../../../features/auth/LoginForm';
 import RegisterForm from '../../../features/auth/RegisterForm';
 
 function ModalManager() {
-    const modalLookup = {
-        TestModal,
-        LoginForm,
-        RegisterForm,
-    };
-    const currentModal = useSelector((state) => state.modals);
-    let renderedModal;
-    if (currentModal) {
-        const { modalType, modalProps } = currentModal;
-        const ModalComponent = modalLookup[modalType];
-        renderedModal = <ModalComponent {...modalProps} />;
-    }
+  const modalLookup = {
+    TestModal,
+    LoginForm,
+    RegisterForm,
+  };
+  const currentModal = useSelector((state) => state.modals);
+  let renderedModal;
+  if (currentModal) {
+    const { modalType, modalProps } = currentModal;
+    const ModalComponent = modalLookup[modalType];
+    renderedModal = <ModalComponent {...modalProps} />;
+  }
 
-    return <span>{renderedModal}</span>;
+  return <span>{renderedModal}</span>;
 }
 
 export default ModalManager;

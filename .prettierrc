@@ -3,6 +3,14 @@
   "arrowParens": "always",
   "semi": true,
   "tabWidth": 4,
+  "overrides": [
+    {
+      "files": "*.jsx",
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ],
   "singleQuote": true,
   "trailingComma": "es5",
   "bracketSpacing": true,

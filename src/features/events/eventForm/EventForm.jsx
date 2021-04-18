@@ -55,10 +55,12 @@ function EventForm({ match, history }) {
     setLoadingCancel(true);
     try {
       await cancelEventToggle(event);
-      setLoadingCancel(false);
+      history.push(`/events/${match.params.id}`);
     } catch (error) {
       setLoadingCancel(true);
       toast.error(error.message);
+    } finally {
+      setLoadingCancel(false);
     }
   }
 
@@ -80,13 +82,16 @@ function EventForm({ match, history }) {
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting }) => {
           try {
-            selectedEvent
-              ? await updateEventInFirestore(values)
-              : await addEventToFirestore(values);
-            setSubmitting(false);
-            history.push(`/events/${match.params.id}`);
+            if (selectedEvent) {
+              await updateEventInFirestore(values);
+              history.push(`/events/${match.params.id}`);
+            } else {
+              await addEventToFirestore(values);
+              history.push('/events');
+            }
           } catch (error) {
             toast.error(error.message);
+          } finally {
             setSubmitting(false);
           }
         }}
@@ -149,16 +154,7 @@ function EventForm({ match, history }) {
           </Form>
         )}
       </Formik>
-      {/* <Confirm
-                content={
-                    selectedEvent?.isCancelled
-                        ? "This will reactivate the event – are you sure?"
-                        : "This will cancel the event for all attendees – are you sure?"
-                }
-                open={confirmOpen}
-                onCancel={() => setConfirmOpen(false)}
-                onConfirm={() => handleCancelToggle(selectedEvent)}
-            /> */}
+
       <Modal
         basic
         onClose={() => setConfirmOpen(false)}

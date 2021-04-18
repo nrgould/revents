@@ -16,10 +16,15 @@ function EventListItem({ event }) {
                 size="tiny"
                 circuluar="true"
                 src={event.hostPhotoURL}
+                as={Link}
+                to={`/events/${event.id}`}
               />
               <Item.Content>
                 <Item.Header content={event.title} />
-                <Item.Description>Hosted by {event.hostedBy}</Item.Description>
+                <Item.Description>
+                  Hosted by{' '}
+                  <Link to={`/profile/${event.hostUid}`}>{event.hostedBy}</Link>
+                </Item.Description>
                 {event.isCancelled && (
                   <Label
                     style={{ top: '-40px' }}

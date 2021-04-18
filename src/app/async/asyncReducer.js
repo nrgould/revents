@@ -43,6 +43,7 @@ export default function asyncReducer(state = initialState, { type, payload }) {
                 error: null,
             };
         case ASYNC_ACTION_ERROR:
+            console.log(payload);
             return {
                 ...state,
                 loading: false,

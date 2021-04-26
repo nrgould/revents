@@ -8,6 +8,7 @@ import {
   deletePhotoFromCollection,
   getUserPhotos,
   setMainPhoto,
+  updateEventHostPhoto,
 } from '../../../app/firestore/firestoreService';
 import useFirestoreCollection from '../../../app/hooks/useFirestoreCollection';
 import { listenToUserPhotos } from '../profileActions';
@@ -33,6 +34,7 @@ export default function PhotosTab({ profile, isCurrentUser }) {
     });
     try {
       await setMainPhoto(photo);
+      await updateEventHostPhoto(photo);
     } catch (error) {
       toast.error(error.message);
     } finally {

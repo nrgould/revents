@@ -73,7 +73,6 @@ export function cancelEventToggle(event) {
 }
 
 export function setUserProfileData(user) {
-    console.log(user);
     return db
         .collection('users')
         .doc(user.uid)
@@ -147,6 +146,29 @@ export async function setMainPhoto(photo) {
     }
 }
 
+export async function updateEventHostPhoto(photo) {
+    const user = firebase.auth().currentUser;
+
+    const newPhoto = {
+        hostPhotoURL: photo.url,
+    };
+
+    return db
+        .collection('events')
+        .where('hostUid', '==', user.uid)
+        .get()
+        .then((response) => {
+            const batch = db.batch();
+            response.docs.forEach((doc) => {
+                const docRef = db.collection('events').doc(doc.id);
+                batch.update(docRef, newPhoto);
+            });
+            batch.commit().then(() => {
+                console.log('updated host photos');
+            });
+        });
+}
+
 export function deletePhotoFromCollection(photoId) {
     const userUid = firebase.auth().currentUser.uid;
     return db
@@ -166,7 +188,7 @@ export function addUserAttendance(event) {
             attendees: firebase.firestore.FieldValue.arrayUnion({
                 id: user.uid,
                 displayName: user.displayName,
-                photoURL: user.photoURL || null,
+                photoURL: user.photoURL || '/assets/user.png',
             }),
             attendeeIds: firebase.firestore.FieldValue.arrayUnion(user.uid),
         });
@@ -210,4 +232,77 @@ export function getUserEventsQuery(activeTab, userUid) {
                 .where('date', '>=', today)
                 .orderBy('date');
     }
+}
+
+export async function followUser(profile) {
+    const user = firebase.auth().currentUser;
+    const batch = db.batch();
+    try {
+        batch.set(
+            db
+                .collection('following')
+                .doc(user.uid)
+                .collection('userFollowing')
+                .doc(profile.id),
+            {
+                displayName: profile.displayName,
+                photoURL: profile.photoURL,
+                uid: profile.id,
+            }
+        );
+        batch.update(db.collection('users').doc(user.uid), {
+            followingCount: firebase.firestore.FieldValue.increment(1),
+        });
+        return await batch.commit();
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
+
+export async function unfollowUser(profile) {
+    const user = firebase.auth().currentUser;
+    const batch = db.batch();
+    try {
+        batch.delete(
+            db
+                .collection('following')
+                .doc(user.uid)
+                .collection('userFollowing')
+                .doc(profile.id)
+        );
+        
+        batch.update(db.collection('users').doc(user.uid), {
+            followingCount: firebase.firestore.FieldValue.increment(-1),
+        });
+        
+        return await batch.commit();
+    } catch (error) {
+        throw error;
+    }
+}
+
+export function getFollowersCollection(profileId) {
+    return db
+        .collection('following')
+        .doc(profileId)
+        .collection('userFollowers');
+}
+
+export function getFollowingCollection(profileId) {
+    return db
+        .collection('following')
+        .doc(profileId)
+        .collection('userFollowing');
+}
+
+//helper function to determine if current user is following the loaded profile
+export function getFollowingDoc(profileId) {
+    const userUid = firebase.auth().currentUser.uid;
+    return db
+        .collection('following')
+        .doc(userUid)
+        .collection('userFollowing')
+        .doc(profileId)
+        .get();
 }

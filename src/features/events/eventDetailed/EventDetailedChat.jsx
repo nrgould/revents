@@ -60,7 +60,7 @@ function EventDetailedChat({ eventId }) {
         />
         <Comment.Group>
           {createDataTree(comments).map((comment) => (
-            <Comment>
+            <Comment key={comment.id}>
               <Comment.Avatar src={comment.photoURL || '/assets/user.png'} />
               <Comment.Content>
                 <Comment.Author as={Link} to={`/profile/${comment.uid}`}>
